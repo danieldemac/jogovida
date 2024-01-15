@@ -9,8 +9,8 @@ O Jogo da Vida é um modelo matemático que opera em uma grade bidimensional de 
 ## Funcionalidades
 
 - **Interface interativa:** Visualize e experimente o Jogo da Vida em tempo real.
-- **Controles simples:** Controle a evolução das gerações com botões intuitivos.
-- **Personalização:** Experimente diferentes padrões iniciais e observe como eles evoluem.
+- **Controles simples:** Controle a evolução das gerações com botões intuitivos. ((Ainda em implementação))
+- **Personalização:** Experimente diferentes padrões iniciais e observe como eles evoluem. ((Ainda em implementação))
 
 ## Como Usar
 
