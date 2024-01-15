@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo da Vida de Conway</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column; /* Adicionado para empilhar os elementos verticalmente */
+    }
+
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Jogo da Vida de Conway</h1>
+  <canvas id="canvas" width="600" height="400"></canvas>
+
+  <script>
+    // Variáveis globais
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const largura = canvas.width;
+    const altura = canvas.height;
+    const tabuleiro = new Array(largura).fill(null).map(() => new Array(altura).fill(0));
+
+    // Função para desenhar uma célula
+    function desenhaCelula(x, y) {
+      ctx.fillStyle = (tabuleiro[x][y] === 1) ? "#ffffff" : "#000000";
+      ctx.fillRect(x * 10, y * 10, 10, 10);
+    }
+
+    // Função para inicializar o jogo
+    function inicializar() {
+      // Gera um tabuleiro aleatório
+      for (let x = 0; x < largura; x++) {
+        for (let y = 0; y < altura; y++) {
+          tabuleiro[x][y] = Math.random() < 0.5 ? 1 : 0;
+        }
+      }
+
+      // Desenha o tabuleiro inicial
+      desenhaTabuleiro();
+    }
+
+    // Função para desenhar o tabuleiro
+    function desenhaTabuleiro() {
+      for (let x = 0; x < largura; x++) {
+        for (let y = 0; y < altura; y++) {
+          desenhaCelula(x, y);
+        }
+      }
+    }
+
+    // Função para calcular a próxima geração
+    function calcularProximaGeracao() {
+      // Cria uma nova matriz para a próxima geração
+      let novaGeracao = new Array(largura);
+      for (let i = 0; i < largura; i++) {
+        novaGeracao[i] = new Array(altura);
+      }
+
+      // Percorre o tabuleiro atual
+      for (let x = 0; x < largura; x++) {
+        for (let y = 0; y < altura; y++) {
+          // Calcula o número de células vivas vizinhas
+          let vizinhosVivos = 0;
+          for (let i = x - 1; i <= x + 1; i++) {
+            for (let j = y - 1; j <= y + 1; j++) {
+              if (i >= 0 && i < largura && j >= 0 && j < altura) {
+                vizinhosVivos += tabuleiro[i][j];
+              }
+            }
+          }
+
+          // Aplica as regras do jogo da vida
+          if (tabuleiro[x][y] === 1) {
+            if (vizinhosVivos === 2 || vizinhosVivos === 3) {
+              novaGeracao[x][y] = 1;
+            } else {
+              novaGeracao[x][y] = 0;
+            }
+          } else {
+            if (vizinhosVivos === 3) {
+              novaGeracao[x][y] = 1;
+            } else {
+              novaGeracao[x][y] = 0;
+            }
+          }
+        }
+      }
+
+      // Atualiza o tabuleiro atual com a próxima geração
+      tabuleiro.splice(0, tabuleiro.length, ...novaGeracao);
+      desenhaTabuleiro();
+    }
+
+    // Função para iniciar o loop do jogo
+    function iniciarLoop() {
+      // Cria um temporizador para chamar a função `calcularProximaGeracao()` a cada 1 segundo
+      const timer = setInterval(calcularProximaGeracao, 50);
+
+      // Adiciona um evento para encerrar o loop quando o usuário clicar no canvas
+      canvas.addEventListener("click", function() {
+        clearInterval(timer);
+      });
+    }
+
+    // Inicializa o jogo
+    inicializar();
+    iniciarLoop();
+  </script>
+
+</body>
+</html>
