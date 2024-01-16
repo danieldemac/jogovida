@@ -17,7 +17,7 @@ O Jogo da Vida é um modelo matemático que opera em uma grade bidimensional de 
 1. Clone este repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/Jogo_da_Vida_de_Conway.git
+    git clone https://github.com/danieldemac/game_Conway
     ```
 
 2. Abra o arquivo `index.html` em seu navegador.
