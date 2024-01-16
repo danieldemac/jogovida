@@ -1,4 +1,4 @@
-<h1 align="center"> Jogo da Vida de Conway <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif" alt="Glider"/></h1>
+<h1 align="center"> Jogo da Vida de Conway </h1>
 
 
 <p align="center">
@@ -9,6 +9,7 @@ O Jogo da Vida é um autômato celular fascinante desenvolvido pelo renomado mat
 ## Descrição
 <p align="center">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Game_of_life_blinker.gif" alt="Blinker"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif" alt="Glider"/>
 </p>
 O Jogo da Vida é um modelo matemático que opera em uma grade bidimensional de células. Cada célula pode estar viva ou morta, e a evolução das gerações é determinada por regras simples, resultando em padrões complexos e interessantes.
 
