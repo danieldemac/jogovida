@@ -1,37 +1,64 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
-    font-family: 'Arial', sans-serif;
-    background-color: #e0eaf7; /* Tom de azul claro para o fundo */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #edf5fc; /* Tom de azul claro para o fundo */
+}
 
-  h1 {
-    color: #336699; /* Tom de azul mais escuro para o título */
-  }
+.bg_site{
+  background-image: url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
-  canvas {
-    border: 1px solid #336699; /* Tom de azul mais escuro para a borda do canvas */
-    background-color: #ffffff; /* Fundo branco para o canvas */
-    width: 800px; /* Ajuste a largura conforme necessário */
-    height: 600px; /* Ajuste a altura conforme necessário */
-  }
+h1 {
+  color:black; 
+  font-family: 'Montserrat', sans-serif;
+}
 
-  label {
-    margin-top: 10px;
-    color: #336699; /* Tom de azul mais escuro para as labels */
-  }
+canvas {
+  border: 2px solid #3498db; /* Tom de azul mais intenso para a borda do canvas */
+  background-color: #ffffff; /* Fundo branco para o canvas */
+  width: 80%; /* Ajuste a largura conforme necessário */
+  max-width: 800px; /* Largura máxima do canvas */
+  height: auto; /* Altura automática para manter a proporção */
+}
 
-  input {
-    width: 80%;
-    margin: 5px 0;
-    background-color: #e0eaf7; /* Tom de azul claro para o fundo do input range */
-  }
+label {
+  margin-top: 10px;
+  color:black;  /* Tom de azul mais intenso para as labels */
+  font-family: 'Montserrat', sans-serif;
+}
 
-  span {
-    color: #336699; /* Tom de azul mais escuro para o valor da velocidade */
-    font-weight: bold;
-  }
+input {
+  width: 80%;
+  margin: 5px 0;
+  background-color: #edf5fc; /* Tom de azul claro para o fundo do input range */
+  border: 1px solid #3498db; /* Borda mais clara para o input range */
+}
+
+span {
+  color:black; 
+  font-weight: bold;
+}
+
+button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #3498db; /* Tom de azul mais intenso para o botão */
+  color: #ffffff; /* Texto branco para o botão */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+  background-color: #2980b9; /* Tom mais escuro ao passar o mouse */
+}

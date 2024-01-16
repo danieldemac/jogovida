@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <title>Jogo da Vida de Conway</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Jogo da Vida de Conway</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
-<body>
-
-  <h1>Jogo da Vida de Conway</h1>
-  <canvas id="canvas" width="800" height="600"></canvas>
-  <label for="velocidade">Velocidade da Simulação:</label>
-  <input type="range" min="0" max="10" step="0.01" id="velocidade" value="5" oninput="atualizarVelocidade(this.value)">
-  <span id="velocidadeAtual">5</span>
-
-  <script src="js/simulation.js"></script>
+<body class="bg_site">
+    <h1>Jogo da Vida de Conway</h1>
+    <script src="js/simulation.js"></script>
+    <label for="velocidade">Velocidade da Simulação:</label>
+    <input type="range" min="1" max="60" step="1" id="velocidade" value="5" oninput="atualizarVelocidade(this.value)">
+    <span id="velocidadeAtual">5</span>
+    
+    <button onclick="toggleSimulation()">Parar/Retomar Simulação</button>
+    <button onclick="reiniciarSimulacao()">Reiniciar Simulação</button>
 </body>
 </html>
