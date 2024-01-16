@@ -1,4 +1,4 @@
-# Jogo da Vida de Conway
+<h1 aling="center">Jogo da Vida de Conway<img width="25" height="25" src="https://en.wikipedia.org/wiki/File:Game_of_life_animated_glider.gif" alt="Glider"/></h1> 
 
 O Jogo da Vida é um autômato celular fascinante desenvolvido pelo renomado matemático britânico John Horton Conway em 1970. Este repositório contém uma implementação interativa do Jogo da Vida em uma página web, permitindo que os usuários experimentem e observem as complexas dinâmicas emergentes desse autômato celular.
 
