@@ -1,113 +1,106 @@
-    // Variáveis globais
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    const largura = canvas.width;
-    const altura = canvas.height;
-    const tamanhoCelula = 10; // Tamanho da célula
-    const tabuleiro = new Array(largura / tamanhoCelula).fill(null).map(() => new Array(altura / tamanhoCelula).fill(0));
+function make2DArray(cols, rows) {
+  let arr = new Array(cols);
+  for (let i = 0; i < arr.length; i++) {
+      arr[i] = new Array(rows);
+  }
+  return arr;
+}
 
-    let velocidadeAtual = 5;
-    let intervaloTempo = 1000 / (velocidadeAtual + 0.1);
-    let timer;
+let grid;
+let cols;
+let rows;
+let resolution = 10;
+let speed = 5; // Defina a velocidade desejada (5 é a velocidade padrão)
+let isRunning = true; // Flag para indicar se a simulação está em execução
 
-    function desenhaCelula(x, y) {
-      ctx.fillStyle = (tabuleiro[x][y] === 1) ? "#ffffff" : "#000000";
-      ctx.fillRect(x * tamanhoCelula, y * tamanhoCelula, tamanhoCelula, tamanhoCelula);
-    }
+function setup() {
+  createCanvas(800, 600);
+  cols = width / resolution;
+  rows = height / resolution;
 
-    function inicializar() {
-      for (let x = 0; x < largura / tamanhoCelula; x++) {
-        for (let y = 0; y < altura / tamanhoCelula; y++) {
-          tabuleiro[x][y] = Math.random() < 0.5 ? 1 : 0;
-        }
+  grid = make2DArray(cols, rows);
+  reiniciarSimulacao();
+}
+
+function draw() {
+  frameRate(speed); // Define a taxa de quadros por segundo
+
+  background(255);
+
+  for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+          let x = i * resolution;
+          let y = j * resolution;
+          if (grid[i][j] == 1) {
+              fill(0);
+              stroke(255);
+              rect(x, y, resolution - 1, resolution - 1);
+          }
       }
-      desenhaTabuleiro();
-    }
+  }
 
-    function desenhaTabuleiro() {
-      for (let x = 0; x < largura / tamanhoCelula; x++) {
-        for (let y = 0; y < altura / tamanhoCelula; y++) {
-          desenhaCelula(x, y);
-        }
-      }
-    }
+  if (isRunning) {
+      let next = make2DArray(cols, rows);
 
-    function calcularProximaGeracao() {
-      // Cria uma nova matriz temporária para a próxima geração
-      let novaGeracaoTemporaria = new Array(largura / tamanhoCelula);
-      for (let i = 0; i < largura / tamanhoCelula; i++) {
-        novaGeracaoTemporaria[i] = new Array(altura / tamanhoCelula);
-      }
+      // Compute next based on grid
+      for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+              let state = grid[i][j];
+              // Count live neighbors!
+              let sum = 0;
+              let neighbors = countNeighbors(grid, i, j);
 
-      for (let x = 0; x < largura / tamanhoCelula; x++) {
-        for (let y = 0; y < altura / tamanhoCelula; y++) {
-          let vizinhosVivos = 0;
-          for (let i = x - 1; i <= x + 1; i++) {
-            for (let j = y - 1; j <= y + 1; j++) {
-              if (i >= 0 && i < largura / tamanhoCelula && j >= 0 && j < altura / tamanhoCelula) {
-                vizinhosVivos += tabuleiro[i][j];
+              if (state == 0 && neighbors == 3) {
+                  next[i][j] = 1;
+              } else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
+                  next[i][j] = 0;
+              } else {
+                  next[i][j] = state;
               }
-            }
           }
-
-          // Aplica as regras ao tabuleiro temporário
-          // Qualquer célula viva com dois ou três vizinhos vivos continua a viver para a próxima geração.
-          if (tabuleiro[x][y] === 1 && (vizinhosVivos === 2 || vizinhosVivos === 3)) {
-            novaGeracaoTemporaria[x][y] = 1;
-          } 
-          // Qualquer célula morta com exatamente três vizinhos vivos se torna uma célula viva, como se fosse por reprodução.
-          else if (tabuleiro[x][y] === 0 && vizinhosVivos === 3) {
-            novaGeracaoTemporaria[x][y] = 1;
-          } 
-          // Qualquer célula viva com menos de dois vizinhos vivos morre, como se fosse por subpopulação.
-          else if(tabuleiro[x][y] === 1 && vizinhosVivos < 2){
-            novaGeracaoTemporaria[x][y] = 0;
-          } 
-          // Qualquer célula viva com mais de três vizinhos vivos morre, como se fosse por superpopulação.
-          else if (tabuleiro[x][y] === 1 && vizinhosVivos > 3){
-            novaGeracaoTemporaria[x][y] = 0;
-          }
-          // Mantém o estado atual se nenhuma regra for aplicada
-          else {
-            novaGeracaoTemporaria[x][y] = tabuleiro[x][y];
-          }
-        }
       }
 
-      // Atualiza o tabuleiro principal com as alterações da próxima geração
-      tabuleiro.splice(0, tabuleiro.length, ...novaGeracaoTemporaria);
-      desenhaTabuleiro();
-    }
+      grid = next;
+  }
+}
 
-    function atualizarVelocidade(valor) {
-      velocidadeAtual = parseFloat(valor);
-      intervaloTempo = 1000 / (velocidadeAtual + 0.1);
-      document.getElementById('velocidadeAtual').textContent = valor;
-      reiniciarLoop();
-    }
+function countNeighbors(grid, x, y) {
+  let sum = 0;
+  for (let i = -1; i < 2; i++) {
+      for (let j = -1; j < 2; j++) {
+          let col = (x + i + cols) % cols;
+          let row = (y + j + rows) % rows;
+          sum += grid[col][row];
+      }
+  }
+  sum -= grid[x][y];
+  return sum;
+}
 
-    function reiniciarLoop() {
-      clearInterval(timer);
-      timer = setInterval(calcularProximaGeracao, intervaloTempo);
-    }
+function atualizarVelocidade(valor) {
+  speed = constrain(parseFloat(valor), 1, 60);
+  document.getElementById("velocidadeAtual").innerText = speed;
+}
 
-    function adicionarCelula(event) {
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
-      
-      const cellX = Math.floor(mouseX / tamanhoCelula);
-      const cellY = Math.floor(mouseY / tamanhoCelula);
+function mousePressed() {
+  if (!isRunning) {
+      // Se a simulação estiver parada, permite adicionar/remover células
+      let i = floor(mouseX / resolution);
+      let j = floor(mouseY / resolution);
+      grid[i][j] = 1 - grid[i][j];
+  }
+}
 
-      tabuleiro[cellX][cellY] = 1 - tabuleiro[cellX][cellY];
-      
-      desenhaCelula(cellX, cellY);
-    }
+function toggleSimulation() {
+  // Alterna o estado da simulação (parar/retomar)
+  isRunning = !isRunning;
+}
 
-    inicializar();
-    timer = setInterval(calcularProximaGeracao, intervaloTempo);
-
-    canvas.addEventListener("click", function(event) {
-      clearInterval(timer);
-      adicionarCelula(event);
-    });
+function reiniciarSimulacao() {
+  // Cria uma nova grade com estados aleatórios
+  for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+          grid[i][j] = floor(random(2));
+      }
+  }
+}
