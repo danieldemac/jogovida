@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Jogo da Vida de Conway</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
@@ -12,8 +15,11 @@
     <label for="velocidade">Velocidade da Simulação:</label>
     <input type="range" min="1" max="60" step="1" id="velocidade" value="5" oninput="atualizarVelocidade(this.value)">
     <span id="velocidadeAtual">5</span>
-    
-    <button onclick="toggleSimulation()">Parar/Retomar Simulação</button>
-    <button onclick="reiniciarSimulacao()">Reiniciar Simulação</button>
+    <div class="botoes">
+        <button onclick="toggleSimulation()">Parar/Retomar Simulação</button>
+        <button onclick="reiniciarSimulacao()">Reiniciar Simulação</button>
+        <button onclick="clearSimulation()">Apagar Tudo</button>  
+    </div>
+
 </body>
 </html>

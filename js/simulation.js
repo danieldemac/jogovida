@@ -96,6 +96,15 @@ function toggleSimulation() {
   isRunning = !isRunning;
 }
 
+//Apaga a SImulação
+function clearSimulation() {
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      grid[i][j] = 0;
+    }
+  }
+}
+
 function reiniciarSimulacao() {
   // Cria uma nova grade com estados aleatórios
   for (let i = 0; i < cols; i++) {

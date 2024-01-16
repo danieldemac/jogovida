@@ -6,7 +6,12 @@ body {
   margin: 0;
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
-  background-color: #edf5fc; /* Tom de azul claro para o fundo */
+  background-color: #edf5fc; 
+}
+
+.botoes button {
+  display: inline-block;
+  margin-right: 5px; 
 }
 
 .bg_site{
@@ -17,41 +22,44 @@ body {
 }
 
 h1 {
-  color:black; 
-  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px; 
 }
-
 canvas {
-  border: 2px solid #3498db; /* Tom de azul mais intenso para a borda do canvas */
-  background-color: #ffffff; /* Fundo branco para o canvas */
-  width: 80%; /* Ajuste a largura conforme necessário */
-  max-width: 800px; /* Largura máxima do canvas */
-  height: auto; /* Altura automática para manter a proporção */
+  border: 2px solid #3498db; 
+  background-color: #ffffff; 
+  width: 80%; 
+  max-width: 800px; 
+  height: auto; 
 }
 
 label {
   margin-top: 10px;
-  color:black;  /* Tom de azul mais intenso para as labels */
-  font-family: 'Montserrat', sans-serif;
+  color:black; 
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px; 
 }
 
 input {
   width: 80%;
   margin: 5px 0;
-  background-color: #edf5fc; /* Tom de azul claro para o fundo do input range */
-  border: 1px solid #3498db; /* Borda mais clara para o input range */
+  background-color: #edf5fc; 
+  border: 1px solid #3498db; 
 }
 
 span {
   color:black; 
   font-weight: bold;
+  background: rgba(255, 255, 255);
+  padding: 10px; 
 }
 
 button {
   margin: 10px 0;
   padding: 10px 20px;
-  background-color: #3498db; /* Tom de azul mais intenso para o botão */
-  color: #ffffff; /* Texto branco para o botão */
+  background-color: #3498db;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -60,5 +68,5 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9; /* Tom mais escuro ao passar o mouse */
+  background-color: #2980b9; 
 }
