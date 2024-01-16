@@ -22,8 +22,9 @@ As regras são aplicadas simultaneamente em todas as células para chegar ao est
 ## Funcionalidades
 
 - **Interface interativa:** Visualize e experimente o Jogo da Vida em tempo real.
-- **Controles simples:** Controle a evolução das gerações com botões intuitivos. ((Ainda em implementação))
-- **Personalização:** Experimente diferentes padrões iniciais e observe como eles evoluem. ((Ainda em implementação))
+- **Controles simples:** Controle a evolução das gerações com botões intuitivos.
+- **Criação de Células** Crie novas celulas ao clicar na simulação.
+- **Personalização:** Experimente diferentes padrões iniciais e observe como eles evoluem.
 
 ## Como Usar
 
