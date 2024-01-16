@@ -18,6 +18,8 @@ function setup() {
   cols = width / resolution;
   rows = height / resolution;
 
+  
+
   grid = make2DArray(cols, rows);
   reiniciarSimulacao();
 }

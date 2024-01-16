@@ -9,8 +9,19 @@
     <title>Jogo da Vida de Conway</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
+
 <body class="bg_site">
-    <h1>Jogo da Vida de Conway</h1>
+    <div class="content">
+<header class="header">
+        <nav>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </header>
+    <h1>O Jogo da Vida de Conway</h1>
     <script src="js/simulation.js"></script>
     <label for="velocidade">Velocidade da Simulação:</label>
     <input type="range" min="1" max="60" step="1" id="velocidade" value="5" oninput="atualizarVelocidade(this.value)">
@@ -20,6 +31,8 @@
         <button onclick="reiniciarSimulacao()">Reiniciar Simulação</button>
         <button onclick="clearSimulation()">Apagar Tudo</button>  
     </div>
+    </div>
+    
 
 </body>
 </html>

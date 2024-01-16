@@ -1,56 +1,87 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
-  flex-direction: column;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #edf5fc; /* Tom de azul claro para o fundo */
+  background-image: url('images/bg_site.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  justify-content: center;
 }
 
-.bg_site{
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center; /* Adicionado para centralizar o conteúdo */
+}
+
+.p5Canvas {
+  margin: 0 auto;
+  display: block;
+  border: 20px solid rgba(0, 0, 0, 0.5);
+  background-color: #ffffff; 
+  width: 80%; 
+  max-width: 800px; 
+  height: auto; 
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+li {
+  text-align: left;
+}
+
+h1 {
+  color: black;
+}
+
+.texto {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.bg_site {
   background-image: url(../images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-h1 {
-  color:black; 
-  font-family: 'Montserrat', sans-serif;
-}
-
-canvas {
-  border: 2px solid #3498db; /* Tom de azul mais intenso para a borda do canvas */
-  background-color: #ffffff; /* Fundo branco para o canvas */
-  width: 80%; /* Ajuste a largura conforme necessário */
-  max-width: 800px; /* Largura máxima do canvas */
-  height: auto; /* Altura automática para manter a proporção */
-}
-
-label {
-  margin-top: 10px;
-  color:black;  /* Tom de azul mais intenso para as labels */
-  font-family: 'Montserrat', sans-serif;
-}
-
-input {
-  width: 80%;
-  margin: 5px 0;
-  background-color: #edf5fc; /* Tom de azul claro para o fundo do input range */
-  border: 1px solid #3498db; /* Borda mais clara para o input range */
-}
-
-span {
-  color:black; 
-  font-weight: bold;
-}
 
 button {
   margin: 10px 0;
   padding: 10px 20px;
-  background-color: #3498db; /* Tom de azul mais intenso para o botão */
+  background-color: rgba(0, 0, 0, 0.5); /* Tom de azul mais intenso para o botão */
   color: #ffffff; /* Texto branco para o botão */
   border: none;
   cursor: pointer;
@@ -61,4 +92,37 @@ button {
 
 button:hover {
   background-color: #2980b9; /* Tom mais escuro ao passar o mouse */
+}
+input[type="range"] {
+  width: 80%;
+  margin: 5px 0;
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background-color: #3498db;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background-color: #3498db;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #555;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: #555;
+}
+
+label {
+  margin-top: 10px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+span {
+  color: #000000;
+  font-weight: bold;
 }
