@@ -30,7 +30,7 @@ As regras são aplicadas simultaneamente em todas as células para chegar ao est
 - **Personalização:** Experimente diferentes padrões iniciais e observe como eles evoluem.
 
 ## Como Usar
-
+Entre no site https://gamelifesimulation.netlify.app/ ou:
 1. Clone este repositório:
 
     ```bash
