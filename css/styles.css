@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background-color: #e0eaf7; /* Tom de azul claro para o fundo */
+  }
+
+  h1 {
+    color: #336699; /* Tom de azul mais escuro para o título */
+  }
+
+  canvas {
+    border: 1px solid #336699; /* Tom de azul mais escuro para a borda do canvas */
+    background-color: #ffffff; /* Fundo branco para o canvas */
+    width: 800px; /* Ajuste a largura conforme necessário */
+    height: 600px; /* Ajuste a altura conforme necessário */
+  }
+
+  label {
+    margin-top: 10px;
+    color: #336699; /* Tom de azul mais escuro para as labels */
+  }
+
+  input {
+    width: 80%;
+    margin: 5px 0;
+    background-color: #e0eaf7; /* Tom de azul claro para o fundo do input range */
+  }
+
+  span {
+    color: #336699; /* Tom de azul mais escuro para o valor da velocidade */
+    font-weight: bold;
+  }
