@@ -126,3 +126,10 @@ span {
   color: #000000;
   font-weight: bold;
 }
+
+.topo_texto {
+  padding-left: 20px;
+  color: #000000;
+  background-color: #ffffff;
+  position: static;
+}
