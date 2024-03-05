@@ -34,7 +34,7 @@ Entre no site https://gamelifesimulation.netlify.app/ ou:
 1. Clone este repositório:
 
     ```bash
-    git clone https://github.com/danieldemac/game_Conway
+    git clone https://github.com/danieldemac/jogovida
     ```
 
 2. Abra o arquivo `index.html` em seu navegador.
